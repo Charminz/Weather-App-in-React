@@ -1,0 +1,86 @@
+.date-condition-info {
+  color: #242424;
+  clear: left; }
+  .date-condition-info .date {
+    font-size: 25px;
+    margin: 0; }
+  .date-condition-info .description {
+    font-size: 20px;
+    margin: 5px 0 10px 0; }
+
+.temperature-weathericon {
+  font-size: 55px;
+  color: #F18274;
+  font-weight: bold; }
+  .temperature-weathericon .temperature {
+    margin-right: 40px; }
+
+.backbtn-cityname {
+  display: flex;
+  margin-bottom: 30px; }
+  .backbtn-cityname .backbtn {
+    margin-right: 20px;
+    border: none;
+    background-color: transparent; }
+    .backbtn-cityname .backbtn:hover {
+      cursor: pointer; }
+  .backbtn-cityname .cityName {
+    margin: 0;
+    font-size: 30px;
+    color: #242424; }
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 24px;
+  margin-left: 300px; }
+  .switch input {
+    display: none; }
+
+.slider-content {
+  position: relative;
+  display: block; }
+  .slider-content:before, .slider-content:after {
+    position: absolute;
+    top: 50%; }
+  .slider-content:before {
+    content: "F";
+    right: 11px;
+    color: black; }
+  .slider-content:after {
+    content: "C";
+    left: 11px;
+    color: black; }
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s; }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 0;
+    bottom: -1px;
+    background-color: black;
+    -webkit-transition: .4s;
+    transition: .4s; }
+  .slider.round {
+    border-radius: 24px; }
+    .slider.round:before {
+      border-radius: 50%; }
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(45px);
+  -ms-transform: translateX(45px);
+  transform: translateX(45px); }
