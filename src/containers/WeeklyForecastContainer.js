@@ -26,9 +26,9 @@ export class WeeklyForecastContainer extends React.Component {
 
         let url = '';
         if (this.props.cityName) {
-            url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + this.props.cityName + '&appid=' + this.props.apiKey + "&units=" + this.props.units;
+            url = 'https://api.openweathermap.org/data/2.5/forecast?q=' + this.props.cityName + '&appid=' + this.props.apiKey + "&units=" + this.props.units;
         } else if (this.props.lat) {
-            url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + this.props.lat + '&lon=' + this.props.lon + '&appid=' + this.props.apiKey + "&units=" + this.props.units
+            url = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + this.props.lat + '&lon=' + this.props.lon + '&appid=' + this.props.apiKey + "&units=" + this.props.units
         }
         this.fetchData(url);
     }
@@ -53,9 +53,9 @@ export class WeeklyForecastContainer extends React.Component {
             .then(results => {
                 return results.json();
             }).then(data => {
-            if (data.message === "city not found") {
+            if (data.message === "city not found" || data.cod === 401 || data.message === "Nothing to geocode") {
                 this.setState({
-                    message: data.message
+                    message: "error"
                 })
             } else {
                 this.setState({
@@ -112,7 +112,7 @@ export class WeeklyForecastContainer extends React.Component {
     }
 
     render() {
-        if (this.state.message !== "city not found") {
+        if (this.state.message !== "error") {
             this.getData();
             return <WeeklyForecastView forecast={this.state.forecast}/>
         } else {
