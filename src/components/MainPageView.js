@@ -5,10 +5,12 @@ export class MainPageView extends React.Component {
         return (
             <div className="main-container">
                 <div className="search-bar">
-                    <input onChange={this.props.onChange} type="search" className="search" placeholder="City"
-                           minLength="1" maxLength="30"/>
-                    <button className="search-icon" onClick={this.props.onClickSearchButton}><i
-                        className="material-icons">search</i></button>
+                    <form onSubmit={this.props.onClickSearchButton}>
+                        <input onChange={this.props.onChange} type="text" className="search" placeholder="City"
+                               minLength="1" maxLength="30"/>
+                        <button type="submit" className="search-icon"><i
+                            className="material-icons">search</i></button>
+                    </form>
                 </div>
                 <div className="current-position-box">
                     <p>or</p>
