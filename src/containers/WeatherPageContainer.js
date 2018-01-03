@@ -1,6 +1,6 @@
 import React from 'react';
-import { CurrentWeatherContainer } from "./CurrentWeatherContainer";
-import { WeeklyForecastContainer } from "./WeeklyForecastContainer";
+import {CurrentWeatherContainer} from "./CurrentWeatherContainer";
+import {WeeklyForecastContainer} from "./WeeklyForecastContainer";
 import '../styles/index.css';
 
 export class WeatherPageContainer extends React.Component {
@@ -12,10 +12,8 @@ export class WeatherPageContainer extends React.Component {
             units: "metric",
             message: ""
         };
-
         this.handleUnitsSwitch = this.handleUnitsSwitch.bind(this);
     }
-
 
     handleUnitsSwitch() {
         if (this.state.units === "imperial") {
@@ -28,12 +26,23 @@ export class WeatherPageContainer extends React.Component {
     render() {
         return (
             <div>
-                <CurrentWeatherContainer onClickUnitsButton={this.handleUnitsSwitch} onClick={this.props.backBtn} lon={this.props.lon} lat={this.props.lat} cityName={this.props.cityName} apiKey={this.state.apiKey} units={this.state.units}/>
+                <CurrentWeatherContainer
+                    onClickUnitsButton={this.handleUnitsSwitch}
+                    onClick={this.props.backBtn}
+                    lon={this.props.lon}
+                    lat={this.props.lat}
+                    cityName={this.props.cityName}
+                    apiKey={this.state.apiKey}
+                    units={this.state.units}/>
 
-                <WeeklyForecastContainer lon={this.props.lon} lat={this.props.lat} cityName={this.props.cityName} apiKey={this.state.apiKey} units={this.state.units} />
+                <WeeklyForecastContainer
+                    lon={this.props.lon}
+                    lat={this.props.lat}
+                    cityName={this.props.cityName}
+                    apiKey={this.state.apiKey}
+                    units={this.state.units}/>
             </div>
         )
-
     }
 }
 

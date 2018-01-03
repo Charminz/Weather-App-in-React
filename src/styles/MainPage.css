@@ -2,14 +2,14 @@
   margin: auto;
   text-align: center;
   width: 40vw;
-  min-width: 150px;
   margin-top: 40vh !important; }
 
 .search-bar {
   width: 40vw;
   vertical-align: middle;
   white-space: nowrap;
-  position: relative; }
+  position: relative;
+  min-width: 150px; }
   .search-bar .search {
     text-align: center;
     font-size: 20px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CurrentWeatherView } from "../components/CurrentWeatherView";
+import {CurrentWeatherView} from "../components/CurrentWeatherView";
 
 export class CurrentWeatherContainer extends React.Component {
     constructor(props) {
@@ -8,7 +8,7 @@ export class CurrentWeatherContainer extends React.Component {
         this.state = {
             message: "",
             units: null,
-            days: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday", "Sunday"],
+            days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
             months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         };
         this.getData = this.getData.bind(this);
@@ -21,7 +21,7 @@ export class CurrentWeatherContainer extends React.Component {
         if (this.props.cityName) {
             url = 'http://api.openweathermap.org/data/2.5/weather?q=' + this.props.cityName + '&appid=' + this.props.apiKey + "&units=" + this.props.units;
         } else if (this.props.lat) {
-            url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + this.props.lat + '&lon=' + this.props.lon +'&appid=' + this.props.apiKey + "&units=" + this.props.units
+            url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + this.props.lat + '&lon=' + this.props.lon + '&appid=' + this.props.apiKey + "&units=" + this.props.units
         }
         this.fetchData(url);
     }
@@ -109,7 +109,7 @@ export class CurrentWeatherContainer extends React.Component {
     }
 
     convertFahrenheitToCelcius(currentTemperature) {
-        let temp = Math.round((currentTemperature - 32) * 5/9);
+        let temp = Math.round((currentTemperature - 32) * 5 / 9);
         return temp + " °C"
     }
 

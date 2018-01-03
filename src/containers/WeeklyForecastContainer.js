@@ -8,7 +8,7 @@ export class WeeklyForecastContainer extends React.Component {
         this.setForecastStateFromJson = this.setForecastStateFromJson.bind(this);
         this.state = {
             message: "",
-            days: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday", "Sunday"],
+            days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
             months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
             forecast: [],
             units: null,
@@ -18,7 +18,7 @@ export class WeeklyForecastContainer extends React.Component {
         this.convertCelciusToFahrenheit = this.convertCelciusToFahrenheit.bind(this);
     }
 
-    componentWillMount(){
+    componentWillMount() {
         this.setState({
             units: this.props.units,
             forecast: []
@@ -28,7 +28,7 @@ export class WeeklyForecastContainer extends React.Component {
         if (this.props.cityName) {
             url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + this.props.cityName + '&appid=' + this.props.apiKey + "&units=" + this.props.units;
         } else if (this.props.lat) {
-            url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + this.props.lat + '&lon=' + this.props.lon +'&appid=' + this.props.apiKey + "&units=" + this.props.units
+            url = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + this.props.lat + '&lon=' + this.props.lon + '&appid=' + this.props.apiKey + "&units=" + this.props.units
         }
         this.fetchData(url);
     }
@@ -72,7 +72,7 @@ export class WeeklyForecastContainer extends React.Component {
 
         for (let i = 0; i < data.list.length; i++) {
             let weatherDate = data.list[i].dt_txt.split(" ");
-            if (weatherDate[0] !== currentDate && weatherDate[1] === "12:00:00"){
+            if (weatherDate[0] !== currentDate && weatherDate[1] === "12:00:00") {
                 let dt = new Date(weatherDate[0]);
                 let forecastDay = this.state.days[dt.getDay()];
                 let unit = (this.props.units === "metric") ? " °C" : " °F";
@@ -114,9 +114,9 @@ export class WeeklyForecastContainer extends React.Component {
     render() {
         if (this.state.message !== "city not found") {
             this.getData();
-            return <WeeklyForecastView forecast={this.state.forecast} />
+            return <WeeklyForecastView forecast={this.state.forecast}/>
         } else {
-            return <p> </p>
+            return <p/>
         }
     }
 }

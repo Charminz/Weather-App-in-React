@@ -1,5 +1,9 @@
 $font-color: #242424;
 
+.current-weather-container {
+  min-width: 310px;
+}
+
 .date-condition-info {
   color: $font-color;
   clear: left;
@@ -28,7 +32,7 @@ $font-color: #242424;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: 35vw;
+  max-width: 460px;
   margin-bottom: 30px;
 
   .backbtn {
@@ -48,7 +52,7 @@ $font-color: #242424;
   }
 }
 
-/* The switch - the box around the slider */
+/* The switch */
 .switch {
   position: relative;
   display: inline-block;
@@ -61,6 +65,7 @@ $font-color: #242424;
   }
 }
 
+/* The content inside the switch ("°F" and "°C") */
 .slider-content {
   position: relative;
   display: block;
@@ -82,10 +87,9 @@ $font-color: #242424;
     content: "°C";
     left: 8px;
   }
-
 }
 
-  /* The slider */
+/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -119,7 +123,6 @@ $font-color: #242424;
     }
   }
 }
-
 
 input:checked + .slider:before {
   -webkit-transform: translateX(32px);

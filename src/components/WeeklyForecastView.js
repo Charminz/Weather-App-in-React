@@ -8,16 +8,15 @@ export class WeeklyForecastView extends React.Component {
     }
 
     setForecastLayout() {
-        let array = this.props.forecast.map(function (day) {
+        return this.props.forecast.map(function (day) {
             return (
                 <div key={day[0]}>
                     <p>{day[0]}</p>
-                    <i className={day[2]} />
+                    <i className={day[2]}/>
                     <p>{day[1]}</p>
                 </div>
             )
         });
-        return array;
     }
 
     render() {

@@ -9,7 +9,7 @@ export class CurrentWeatherView extends React.Component {
 
         this.state = {
             message: "",
-            days: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday", "Sunday"],
+            days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
             months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         }
     }
@@ -18,15 +18,17 @@ export class CurrentWeatherView extends React.Component {
         if (this.props.message && this.props.message === "Invalid city name!") {
             return (
                 <div className="backbtn-cityname">
-                    <button className="backbtn" onClick={this.props.onClick}><i className="material-icons">arrow_back</i></button>
+                    <button className="backbtn" onClick={this.props.onClick}><i
+                        className="material-icons">arrow_back</i></button>
                     <h2>Invalid city name</h2>
                 </div>
             )
         } else {
             return (
-                <div>
+                <div className="current-weather-container">
                     <div className="backbtn-cityname">
-                        <button className="backbtn" onClick={this.props.onClick}><i className="material-icons">arrow_back</i></button>
+                        <button className="backbtn" onClick={this.props.onClick}><i
+                            className="material-icons">arrow_back</i></button>
                         <h1 className="cityName">{this.props.cityName}</h1>
                         <TemperatureUnitsButton onClick={this.props.onClickUnitsButton}/>
                     </div>
@@ -37,7 +39,6 @@ export class CurrentWeatherView extends React.Component {
                     <div className="temperature-weathericon">
                         <span className="temperature">{this.props.currentTemperature}</span>
                         <span><i className={this.props.icon} /></span>
-
                     </div>
                 </div>
             )
