@@ -72,6 +72,7 @@ $font-color: #242424;
   color: white;
   text-align: center;
   margin-top: 2px;
+  cursor: pointer;
 
   &:before, &:after {
     position: absolute;
@@ -81,6 +82,7 @@ $font-color: #242424;
   &:before {
     content: "°F";
     right: 11px;
+
   }
 
   &:after {

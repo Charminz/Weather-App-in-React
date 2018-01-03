@@ -52,7 +52,8 @@
   display: block;
   color: white;
   text-align: center;
-  margin-top: 2px; }
+  margin-top: 2px;
+  cursor: pointer; }
   .slider-content:before, .slider-content:after {
     position: absolute;
     top: 50%; }
