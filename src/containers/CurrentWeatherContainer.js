@@ -57,7 +57,6 @@ export class CurrentWeatherContainer extends React.Component {
                 const currentDate = new Date();
 
                 let unit = this.props.units === "metric" ? " °C" : " °F";
-                console.log(currentDate.getDay());
 
                 this.setState({
                     json: JSON.stringify(data),
