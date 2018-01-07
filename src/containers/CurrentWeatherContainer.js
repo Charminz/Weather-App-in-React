@@ -8,7 +8,7 @@ export class CurrentWeatherContainer extends React.Component {
         this.state = {
             message: "",
             units: null,
-            days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         };
         this.getData = this.getData.bind(this);
@@ -57,13 +57,14 @@ export class CurrentWeatherContainer extends React.Component {
                 const currentDate = new Date();
 
                 let unit = this.props.units === "metric" ? " °C" : " °F";
+                console.log(currentDate.getDay());
 
                 this.setState({
                     json: JSON.stringify(data),
                     cityName: data.name,
                     message: "",
                     units: this.props.units,
-                    date: this.state.days[currentDate.getDay() - 1] + ", " + this.state.months[currentDate.getMonth()] + " " + this.addSuffixToDate(currentDate.getDate()) + " " + currentDate.getFullYear(),
+                    date: this.state.days[currentDate.getDay()] + ", " + this.state.months[currentDate.getMonth()] + " " + this.addSuffixToDate(currentDate.getDate()) + " " + currentDate.getFullYear(),
                     currentTemperature: Math.round(data.main.temp) + unit,
                     currentWeatherDescription: data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1),
                     icon: 'wi wi-owm-' + data.weather[0].id

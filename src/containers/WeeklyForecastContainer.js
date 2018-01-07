@@ -8,7 +8,7 @@ export class WeeklyForecastContainer extends React.Component {
         this.setForecastStateFromJson = this.setForecastStateFromJson.bind(this);
         this.state = {
             message: "",
-            days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
             forecast: [],
             units: null,
