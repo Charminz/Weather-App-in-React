@@ -11,12 +11,23 @@ export class CurrentWeatherContainer extends React.Component {
             days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         };
-        this.getData = this.getData.bind(this);
         this.convertFahrenheitToCelcius = this.convertFahrenheitToCelcius.bind(this);
         this.convertCelciusToFahrenheit = this.convertCelciusToFahrenheit.bind(this);
+        this.getNewWeatherDataFromAPI = this.getNewWeatherDataFromAPI.bind(this);
+        this.setNewTemperaturesOnUnitChange = this.setNewTemperaturesOnUnitChange.bind(this);
     }
 
     componentWillMount() {
+        this.getNewWeatherDataFromAPI();
+    }
+
+    componentDidUpdate() {
+        if (this.state.units !== this.props.units) {
+            this.setNewTemperaturesOnUnitChange();
+        }
+    }
+
+    getNewWeatherDataFromAPI() {
         let url = '';
         if (this.props.cityName) {
             url = 'https://api.openweathermap.org/data/2.5/weather?q=' + this.props.cityName + '&appid=' + this.props.apiKey + "&units=" + this.props.units;
@@ -26,22 +37,20 @@ export class CurrentWeatherContainer extends React.Component {
         this.fetchData(url);
     }
 
-    getData() {
-        if (this.state.units !== null && this.state.units !== this.props.units) {
-            if (this.state.units === 'imperial') {
-                this.setState({
-                    currentTemperature: this.convertFahrenheitToCelcius(this.state.currentTemperature.split(" ")[0])
-                })
-            } else {
-                this.setState({
-                    currentTemperature: this.convertCelciusToFahrenheit(this.state.currentTemperature.split(" ")[0])
-                })
-            }
-
+    setNewTemperaturesOnUnitChange() {
+        if (this.state.units === 'imperial') {
             this.setState({
-                units: this.props.units
-            });
+                currentTemperature: this.convertFahrenheitToCelcius(this.state.currentTemperature.split(" ")[0])
+            })
+        } else {
+            this.setState({
+                currentTemperature: this.convertCelciusToFahrenheit(this.state.currentTemperature.split(" ")[0])
+            })
         }
+
+        this.setState({
+            units: this.props.units
+        });
     }
 
     fetchData(url) {
@@ -85,26 +94,17 @@ export class CurrentWeatherContainer extends React.Component {
 
     render() {
         if (this.state.message === "error") {
-            return (
-                <div>
-                    <CurrentWeatherView onClick={this.props.onClick} message="Invalid city name!"/>
-                </div>
-            )
+            return <CurrentWeatherView onClick={this.props.onClick} message="Invalid city name!"/>;
         } else {
-            this.getData();
-            return (
-                <div>
-                    <CurrentWeatherView
-                        onClick={this.props.onClick}
-                        onClickUnitsButton={this.props.onClickUnitsButton}
-                        cityName={this.state.cityName}
-                        date={this.state.date}
-                        icon={this.state.icon}
-                        currentWeatherDescription={this.state.currentWeatherDescription}
-                        currentTemperature={this.state.currentTemperature}
-                    />
-                </div>
-            )
+            return <CurrentWeatherView
+                onClick={this.props.onClick}
+                onClickUnitsButton={this.props.onClickUnitsButton}
+                cityName={this.state.cityName}
+                date={this.state.date}
+                icon={this.state.icon}
+                currentWeatherDescription={this.state.currentWeatherDescription}
+                currentTemperature={this.state.currentTemperature}
+            />
         }
     }
 

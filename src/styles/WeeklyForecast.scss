@@ -1,10 +1,18 @@
 .forecast-container {
-  div {
-    font-size: 12px;
-    float: left;
-    margin: 50px 50px 0 0;
-
-    text-align: center;
-  }
+  overflow: auto;
+  clear: both;
+  margin-left: 20px;
 }
 
+.dayinfo {
+  font-size: 12px;
+  float: left;
+  margin: 50px 50px 0 0;
+  text-align: center;
+
+}
+
+.weathericon {
+  font-size: 30px;
+  color: darkslategray;
+}

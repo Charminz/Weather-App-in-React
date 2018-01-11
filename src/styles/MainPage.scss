@@ -1,4 +1,10 @@
-$front-page-width: 40vw;
+@import "CurrentWeather.scss";
+
+$front-page-width: 90vw;
+$current-position-btn-color: #D5C186;
+$current-position-btn-color-onhover: #E4E3AF;
+$components-min-width: 150px;
+$searchbar-max-width: 550px;
 
 .main-container {
   margin: auto;
@@ -12,18 +18,9 @@ $front-page-width: 40vw;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
-  min-width: 150px;
-
-  .search {
-    text-align: center;
-    font-size: 20px;
-    width: $front-page-width;
-    height: 50px;
-    border: none;
-    left: 0;
-    color: #63717f;
-    border-radius: 5px;
-  }
+  margin: auto;
+  min-width: $components-min-width;
+  max-width: $searchbar-max-width;
 
   .search-icon {
     position: absolute;
@@ -38,25 +35,41 @@ $front-page-width: 40vw;
   }
 }
 
+.search {
+  text-align: center;
+  font-size: 20px;
+  width: $front-page-width;
+  height: 50px;
+  border: none;
+  left: 0;
+  color: #63717f;
+  border-radius: 5px;
+  min-width: $components-min-width;
+  max-width: $searchbar-max-width;
+
+}
+
 .current-position-box {
   font-size: 20px;
+  min-width: $components-min-width;
 
-  p {
+  .or-word {
     margin: 40px;
+    text-align: center;
   }
 }
 
 .current-pos-btn {
   border: none;
   border-radius: 50px;
-  color: #242424;
+  color: $font-color;
   font-size: 20px;
-  background: #D5C186;
+  background: $current-position-btn-color;
   padding: 20px 30px 20px 30px;
   transition-duration: 0.5s;
 
   &:hover {
-    background: #E4E3AF;
+    background: $current-position-btn-color-onhover;
     cursor: pointer;
     transition-duration: 0.5s;
   }

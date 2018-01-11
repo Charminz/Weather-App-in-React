@@ -15,10 +15,17 @@ export class WeatherPageContainer extends React.Component {
         this.handleUnitsSwitch = this.handleUnitsSwitch.bind(this);
     }
 
+    componentWillMount() {
+        const savedUnit = sessionStorage.getItem("unit");
+        if (savedUnit) this.setState({units: savedUnit});
+    }
+
     handleUnitsSwitch() {
         if (this.state.units === "imperial") {
+            sessionStorage.setItem("unit", "metric");
             this.setState({units: "metric"});
         } else {
+            sessionStorage.setItem("unit", "imperial");
             this.setState({units: "imperial"});
         }
     }

@@ -5,7 +5,7 @@ export class MainPageView extends React.Component {
         return (
             <div className="main-container">
                 <div className="search-bar">
-                    <form onSubmit={this.props.onClickSearchButton}>
+                    <form onSubmit={this.props.handleSearchFormSubmit}>
                         <input onChange={this.props.onChange} type="text" className="search" placeholder="City"
                                minLength="1" maxLength="30"/>
                         <button type="submit" className="search-icon"><i
@@ -13,7 +13,7 @@ export class MainPageView extends React.Component {
                     </form>
                 </div>
                 <div className="current-position-box">
-                    <p>or</p>
+                    <p className="or-word">or</p>
                     <button className="current-pos-btn" onClick={this.props.onClickCoordinatesButton}> Use current
                         position
                     </button>

@@ -13,7 +13,7 @@ export class WeeklyForecastContainer extends React.Component {
             forecast: [],
             units: null,
         };
-        this.getData = this.getData.bind(this);
+        this.setNewTemperaturesOnUnitChange = this.setNewTemperaturesOnUnitChange.bind(this);
         this.convertFahrenheitToCelcius = this.convertFahrenheitToCelcius.bind(this);
         this.convertCelciusToFahrenheit = this.convertCelciusToFahrenheit.bind(this);
     }
@@ -33,19 +33,23 @@ export class WeeklyForecastContainer extends React.Component {
         this.fetchData(url);
     }
 
-    getData() {
-        if (this.state.units != null && this.state.units !== this.props.units) {
-            if (this.state.units === 'imperial') {
-                this.convertFahrenheitToCelcius();
-
-            } else {
-                this.convertCelciusToFahrenheit();
-            }
-
-            this.setState({
-                units: this.props.units
-            });
+    componentDidUpdate() {
+        if (this.state.units !== this.props.units) {
+            this.setNewTemperaturesOnUnitChange();
         }
+    }
+
+    setNewTemperaturesOnUnitChange() {
+        if (this.state.units === 'imperial') {
+            this.convertFahrenheitToCelcius();
+
+        } else {
+            this.convertCelciusToFahrenheit();
+        }
+
+        this.setState({
+            units: this.props.units
+        });
     }
 
     fetchData(url) {
@@ -113,7 +117,6 @@ export class WeeklyForecastContainer extends React.Component {
 
     render() {
         if (this.state.message !== "error") {
-            this.getData();
             return <WeeklyForecastView forecast={this.state.forecast}/>
         } else {
             return <p/>

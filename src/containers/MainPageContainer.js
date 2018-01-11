@@ -62,7 +62,6 @@ export class MainPageContainer extends React.Component {
         });
         sessionStorage.setItem("lat", position.coords.latitude);
         sessionStorage.setItem("lon", position.coords.longitude);
-
     }
 
     resetStates() {
@@ -75,6 +74,7 @@ export class MainPageContainer extends React.Component {
         sessionStorage.removeItem("cityName");
         sessionStorage.removeItem("lon");
         sessionStorage.removeItem("lat");
+        sessionStorage.removeItem("unit");
     }
 
     render() {
@@ -87,7 +87,7 @@ export class MainPageContainer extends React.Component {
         } else {
             return <MainPageView
                 onClickCoordinatesButton={this.handleClickOnSearchByCoordsButton}
-                onClickSearchButton={this.handleClickOnSearchButton}
+                handleSearchFormSubmit={this.handleClickOnSearchButton}
                 onChange={this.handleCityInputValueChange}/>;
         }
     }
