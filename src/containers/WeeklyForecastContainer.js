@@ -34,7 +34,7 @@ export class WeeklyForecastContainer extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.state.units !== this.props.units) {
+        if (this.state.units !== this.props.units && this.state.units !== null) {
             this.setNewTemperaturesOnUnitChange();
         }
     }
@@ -57,7 +57,7 @@ export class WeeklyForecastContainer extends React.Component {
             .then(results => {
                 return results.json();
             }).then(data => {
-            if (data.message === "city not found" || data.cod === 401 || data.message === "Nothing to geocode") {
+            if (!data.list) {
                 this.setState({
                     message: "error"
                 })

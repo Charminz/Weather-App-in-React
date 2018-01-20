@@ -1,24 +1,125 @@
+@charset "UTF-8";
+.current-weather-container {
+  min-width: 310px;
+  margin-top: 20px;
+  margin-left: 20px; }
+
+.currentday-info {
+  color: #242424;
+  clear: left; }
+
+.date {
+  font-size: 25px;
+  margin: 0; }
+
+.daily-description {
+  font-size: 20px;
+  margin: 5px 0 10px 0; }
+
+.temperature-weathericon {
+  font-size: 55px;
+  color: #E09582;
+  font-weight: bold; }
+  .temperature-weathericon .weathericon {
+    font-size: 70px;
+    color: #E09582; }
+
+.temperature {
+  margin-right: 40px; }
+
+.backbtn-cityname {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 460px;
+  margin-bottom: 30px; }
+
+.backbtn {
+  margin-right: 20px;
+  border: none;
+  background-color: transparent; }
+  .backbtn:hover {
+    cursor: pointer; }
+
+.cityName {
+  margin: 0;
+  font-size: 30px;
+  color: #242424; }
+
+/* The switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 24px;
+  margin-top: 5px; }
+  .switch .unit-input {
+    display: none; }
+
+/* The content inside the switch ("°F" and "°C") */
+.slider-content {
+  position: relative;
+  display: block;
+  color: white;
+  text-align: center;
+  margin-top: 2px;
+  cursor: pointer; }
+  .slider-content:before, .slider-content:after {
+    position: absolute;
+    top: 50%; }
+  .slider-content:before {
+    content: "°F";
+    right: 11px; }
+  .slider-content:after {
+    content: "°C";
+    left: 8px; }
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s; }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 34px;
+    left: 0;
+    bottom: -2px;
+    background-color: black;
+    border: 2px solid #242424;
+    -webkit-transition: .4s;
+    transition: .4s; }
+  .slider.round {
+    border-radius: 24px; }
+    .slider.round:before {
+      border-radius: 45%; }
+
+.unit-input:checked + .slider:before {
+  -webkit-transform: translateX(32px);
+  -ms-transform: translateX(32px);
+  transform: translateX(32px); }
+
 .main-container {
   margin: auto;
   text-align: center;
-  width: 40vw;
+  width: 90vw;
   margin-top: 30vh !important; }
 
 .search-bar {
-  width: 40vw;
+  width: 90vw;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
-  min-width: 150px; }
-  .search-bar .search {
-    text-align: center;
-    font-size: 20px;
-    width: 40vw;
-    height: 50px;
-    border: none;
-    left: 0;
-    color: #63717f;
-    border-radius: 5px; }
+  margin: auto;
+  min-width: 150px;
+  max-width: 550px; }
   .search-bar .search-icon {
     position: absolute;
     margin: 15px;
@@ -28,10 +129,24 @@
     .search-bar .search-icon:hover {
       cursor: pointer; }
 
+.search {
+  text-align: center;
+  font-size: 20px;
+  width: 90vw;
+  height: 50px;
+  border: none;
+  left: 0;
+  color: #63717f;
+  border-radius: 5px;
+  min-width: 150px;
+  max-width: 550px; }
+
 .current-position-box {
-  font-size: 20px; }
-  .current-position-box p {
-    margin: 40px; }
+  font-size: 20px;
+  min-width: 150px; }
+  .current-position-box .or-word {
+    margin: 40px;
+    text-align: center; }
 
 .current-pos-btn {
   border: none;

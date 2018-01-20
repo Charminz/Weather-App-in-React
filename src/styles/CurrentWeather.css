@@ -1,23 +1,31 @@
 @charset "UTF-8";
 .current-weather-container {
-  min-width: 310px; }
+  min-width: 310px;
+  margin-top: 20px;
+  margin-left: 20px; }
 
-.date-condition-info {
+.currentday-info {
   color: #242424;
   clear: left; }
-  .date-condition-info .date {
-    font-size: 25px;
-    margin: 0; }
-  .date-condition-info .description {
-    font-size: 20px;
-    margin: 5px 0 10px 0; }
+
+.date {
+  font-size: 25px;
+  margin: 0; }
+
+.daily-description {
+  font-size: 20px;
+  margin: 5px 0 10px 0; }
 
 .temperature-weathericon {
   font-size: 55px;
-  color: #F18274;
+  color: #E09582;
   font-weight: bold; }
-  .temperature-weathericon .temperature {
-    margin-right: 40px; }
+  .temperature-weathericon .weathericon {
+    font-size: 70px;
+    color: #E09582; }
+
+.temperature {
+  margin-right: 40px; }
 
 .backbtn-cityname {
   display: flex;
@@ -25,16 +33,18 @@
   justify-content: space-between;
   max-width: 460px;
   margin-bottom: 30px; }
-  .backbtn-cityname .backbtn {
-    margin-right: 20px;
-    border: none;
-    background-color: transparent; }
-    .backbtn-cityname .backbtn:hover {
-      cursor: pointer; }
-  .backbtn-cityname .cityName {
-    margin: 0;
-    font-size: 30px;
-    color: #242424; }
+
+.backbtn {
+  margin-right: 20px;
+  border: none;
+  background-color: transparent; }
+  .backbtn:hover {
+    cursor: pointer; }
+
+.cityName {
+  margin: 0;
+  font-size: 30px;
+  color: #242424; }
 
 /* The switch */
 .switch {
@@ -43,7 +53,7 @@
   width: 70px;
   height: 24px;
   margin-top: 5px; }
-  .switch input {
+  .switch .unit-input {
     display: none; }
 
 /* The content inside the switch ("°F" and "°C") */
@@ -91,7 +101,7 @@
     .slider.round:before {
       border-radius: 45%; }
 
-input:checked + .slider:before {
+.unit-input:checked + .slider:before {
   -webkit-transform: translateX(32px);
   -ms-transform: translateX(32px);
   transform: translateX(32px); }
